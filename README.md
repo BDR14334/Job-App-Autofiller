@@ -1,6 +1,6 @@
 # Job-App-Autofiller
 
-Autofill app for fast aand effieciently filling out a job application. User will be given an outline of commonly asked job application questions. Then will be prompted to fill out to save into the database. This app will be coded in JavaScript/React for the front end and backend. It will both be able to be used on mobile and on the web.
+Autofill app for fast and effieciently filling out a job application. User will be given an outline of commonly asked job application questions. Then will be prompted to fill out to save into the database. This app will be coded in JavaScript/React for the front end and backend. It will both be able to be used on mobile and on the web.
 
 # Order of Events
 
