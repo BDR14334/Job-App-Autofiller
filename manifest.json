@@ -2,7 +2,13 @@
     "manifest_version": 3,
     "name": "My Extension",
     "icons": {
-        "32": "icon8.png"
+        "8": "icon8.png"
     },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "background": {
+        "service_worker": "service-worker.js",
+        "type": "module"
+    }
+
+    
 }
