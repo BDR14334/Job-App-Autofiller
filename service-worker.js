@@ -1,4 +1,4 @@
-chrome.action.onClicked.addListner(tab => {  
+chrome.action.onClicked.addListener(tab => {  
     chrome.scripting.executeScript({
         target: {tabId: tab.id},
         func: ()=> {
