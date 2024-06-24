@@ -2,16 +2,16 @@
     "manifest_version": 3,
     "name": "My Extension",
     "icons": {
-        "8": "icon8.png"
+        "32": "icon8.png"
     },
     "version": "1.0.0",
     "background": {
-        "service_worker": "service-worker.js",
-        "type": "module"
+        "service_worker": "welcome/preface.js"
     },
-    "action": { },
     "permissions": [
-        "scripting"
+        "storage",
+        "activeTab",
+        "declarativeContent"
     ],
     "host_permissions": [
         "http://*/*",
