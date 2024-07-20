@@ -3,18 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Autofill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="first_name" placeholder="First Name">
-    <input type="text" id="last_name" placeholder="Last Name">
-    <input type="text" id="address_1" placeholder="Street address">
-    <input type="text" id="city" placeholder="City">
-    <input type="text" id="state" placeholder="State">
-    <input type="text" id="country" placeholder="Country">
-    <button id="save">Save</button> 
-    <button id="load">Load</button> 
-    <button id="autofill">Autofill</button>
-    <script src="script.js"></script> 
+    <h1>Autofill Form</h1>
+    <div>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" placeholder="First Name">
+    </div>
+    <div>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" placeholder="Last Name">
+    </div>
+    <div>
+        <label for="address_1">Street Address:</label>
+        <input type="text" id="address_1" placeholder="Street Address">
+    </div>
+    <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" placeholder="City">
+    </div>
+    <div>
+        <label for="state">State:</label>
+        <input type="text" id="state" placeholder="State">
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <input type="text" id="country" placeholder="Country">
+    </div>
+    <div class="button-container">
+        <button id="save">Save</button>
+        <button id="load">Load</button>
+        <button id="autofill">Autofill</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
