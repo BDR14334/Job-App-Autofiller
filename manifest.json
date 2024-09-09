@@ -1,6 +1,7 @@
 {
     "manifest_version": 3,
     "name": "My Extension",
+    "description": "Automatically fill Workday job application forms",
     "icons": {
         "32": "icon8.png"
     },
@@ -20,7 +21,8 @@
     "permissions": [
         "storage",
         "activeTab",
-        "declarativeContent"
+        "declarativeContent",
+        "scripting"
     ],
     "host_permissions": [
         "http://*/*",
