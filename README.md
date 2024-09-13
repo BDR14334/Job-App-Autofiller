@@ -24,30 +24,35 @@ Autofill app for fast and effieciently filling out a job application. User will 
 
 # Use Cases
 
-UC-1:  Autofill Basic Information
-Summary:
+## Use Case: UC-1: Autofill Basic Information
+
+**Summary:**
 The app requests the user's basic information (name, address, phone number, email, LinkedIn URL) and automatically fills this information into a job application form.
-Rationale:
-To speedup the job application process by reducing the time and effort required to manually input basic information on each job application.
-Users:
+
+**Rationale:**
+To speed up the job application process by reducing the time and effort required to manually input basic information on each job application.
+
+**Users:**
 Job seekers who frequently apply to multiple job positions.
-Preconditions:
-The user has launched the app.
-The user has input their basic information into the app.
-The job application interface is compatible with the autofill feature.
-Basic Course of Events:
+
+### Preconditions:
+- The user has launched the app.
+- The user has input their basic information into the app.
+- The job application interface is compatible with the autofill feature.
+
+### Basic Course of Events:
 1. The user accesses the job application through the app.
 2. The app detects the required fields for basic information on the job application form.
 3. The app retrieves the stored basic information from the user’s profile.
 4. The app automatically fills in the name, address, phone number, email, and LinkedIn URL into the corresponding fields by the click of a button.
 5. The user reviews and submits the job application.
-Alternative Paths:
-AP-1: If the app cannot detect the fields automatically, the user is prompted to manually map the fields to their corresponding information.
-Postconditions:
+
+### Alternative Paths:
+**AP-1**: If the app cannot detect the fields automatically, the user is prompted to manually map the fields to their corresponding information.
+
+### Postconditions:
 - The basic information fields on the job application are populated with the user’s data.
 - The user successfully submits the job application or continues to fill out the remaining sections.
-
-
 
 
 
