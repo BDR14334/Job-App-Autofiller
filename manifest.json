@@ -22,7 +22,8 @@
         "storage",
         "activeTab",
         "declarativeContent",
-        "scripting"
+        "scripting",
+        "windows"
     ],
     "host_permissions": [
         "http://*/*",

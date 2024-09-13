@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const exitButton = document.getElementById('exit');
     const saveButton = document.getElementById('save');
     const loadButton = document.getElementById('load');
-    const autofillButton = document.getElementById('autofill');
+    //const autofillButton = document.getElementById('autofill');
 
     const inputFields = ['first_name', 'last_name', 'address_1', 'city', 'state', 'country'];
 
+    //Exit form
+    exitButton.addEventListener('click', () => {
+        window.close();
+    });
     // Save form data to Chrome storage
     saveButton.addEventListener('click', () => {
         const formData = {};
