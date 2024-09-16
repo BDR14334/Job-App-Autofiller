@@ -24,7 +24,7 @@ Autofill app for fast and effieciently filling out a job application. User will 
 
 # Use Cases
 
-## Use Case: UC-1: Autofill Basic Information
+## UC-1: Autofill Basic Information
 
 **Summary:** 
 The app requests the user's basic information (name, address, phone number, email, LinkedIn URL) and automatically fills this information into a job application form.
@@ -56,7 +56,7 @@ Job seekers who frequently apply to multiple job positions.
 
 Here are the use cases formatted for your README.md file with proper markdown syntax:
 
-## Use Case: UC-2: Attach Resume
+## UC-2: Attach Resume
 
 **Summary:**  
 The app requests and stores the user's resume, allowing it to automatically attach the resume to job applications.
@@ -87,7 +87,7 @@ Job seekers who need to attach a resume to multiple job applications.
 - The user successfully submits the job application.
 
 
-## Use Case: UC-3: Autofill Education History
+## UC-3: Autofill Education History
 
 **Summary:**  
 The app requests and stores the user's education history and automatically fills in the relevant sections of a job application.
@@ -118,7 +118,7 @@ Job seekers with educational qualifications required for job applications.
 - The user successfully submits the job application.
 
 
-## Use Case: UC-4: Autofill Employment History
+## UC-4: Autofill Employment History
 
 **Summary:**  
 The app requests and stores the user's employment history and automatically fills in the relevant sections of a job application.
@@ -149,7 +149,7 @@ Job seekers with previous work experience relevant to job applications.
 - The user successfully submits the job application.
 
 
-## Use Case: UC-5: Autofill Common Short Essay Questions
+## UC-5: Autofill Common Short Essay Questions
 
 **Summary:**  
 The app stores and manages common short essay answers provided by the user and automatically fills them into job applications that request such essays.
@@ -179,15 +179,15 @@ Job seekers who frequently encounter similar short essay questions in job applic
 - The user successfully submits the job application.
 
 
-## Use Case: UC-6: Save Button
+## UC-6: Save Button
 
-**Summary:**  
+**Summary:**                                                                                                              
 The Save Button allows the user to save the data they have entered into the app's database for future use.
 
-**Rationale:**  
+**Rationale:**                                                                                                            
 To ensure that the user's data is securely stored and can be accessed later, reducing the need to re-enter information.
 
-**Users:**  
+**Users:**                                                                                                                
 Job seekers using the app to manage and store their job application information.
 
 **Preconditions:**  
@@ -210,7 +210,7 @@ Job seekers using the app to manage and store their job application information.
 - The user is notified of the successful save or any errors that occurred.
 
 
-## Use Case: UC-7: Load Button
+## UC-7: Load Button
 
 **Summary:**  
 The Load Button allows the user to load previously saved data from the database into the app for editing or use in a job application.
@@ -240,7 +240,7 @@ Job seekers who have previously saved data in the app's database.
 - The user is notified if the load was successful or if any issues occurred.
 
 
-## Use Case: UC-8: Autofill Button
+## UC-8: Autofill Button
 
 **Summary:**  
 The Autofill Button allows the user to automatically fill in the job application form with the data stored in the app.
@@ -272,7 +272,7 @@ Job seekers who want to use their stored information to apply for jobs efficient
 - The user submits the job application or edits the information as needed.
 
 
-## Use Case: UC-9: Toggle Sidebar In and Out with Arrow Button
+## UC-9: Toggle Sidebar In and Out with Arrow Button
 
 **Summary:**  
 The Toggle Sidebar with Arrow Button allows the user to slide the Chrome extension’s sidebar interface in and out of view, providing an easy way to manage the app's visibility while browsing.
