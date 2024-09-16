@@ -1,6 +1,6 @@
 # Job-App-Autofiller
 
-Autofill app for fast and effieciently filling out a job application. User will be given an outline of commonly asked job application questions. Then will be prompted to fill out to save into the database. This app will be coded in JavaScript/React for the front end and backend. It will both be able to be used on mobile and on the web.
+This Chrome extension is designed to simplify the process of applying for jobs by automatically filling out job application forms with user-provided data. The extension will store user information, such as basic details, resumes, education history, employment history, and responses to common essay questions. It will also offer functionalities to save, load, autofill, and exit the extension. The extension targets users who frequently apply for jobs online and are looking to streamline the application process.
 
 # Order of Events
 
