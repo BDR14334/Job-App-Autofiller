@@ -26,13 +26,13 @@ Autofill app for fast and effieciently filling out a job application. User will 
 
 ## Use Case: UC-1: Autofill Basic Information
 
-**Summary:**
+**Summary:** 
 The app requests the user's basic information (name, address, phone number, email, LinkedIn URL) and automatically fills this information into a job application form.
 
-**Rationale:**
+**Rationale:** 
 To speed up the job application process by reducing the time and effort required to manually input basic information on each job application.
 
-**Users:**
+**Users:** 
 Job seekers who frequently apply to multiple job positions.
 
 **Preconditions:**
