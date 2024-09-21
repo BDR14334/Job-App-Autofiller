@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const inputFields = ['first_name', 'last_name', 'address_1', 'city', 'state', 'country'];
 
-    //Exit form
-    exitButton.addEventListener('click', () => {
-        window.close();
-    });
     // Save form data to Chrome storage
     saveButton.addEventListener('click', () => {
         const formData = {};
