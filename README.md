@@ -272,32 +272,31 @@ Job seekers who want to use their stored information to apply for jobs efficient
 - The user submits the job application or edits the information as needed.
 
 
-## UC-9: Toggle Sidebar In and Out with Arrow Button
+## UC-9: Manage Autofill App with Chrome Side Panel
 
-**Summary:**  
-The Toggle Sidebar with Arrow Button allows the user to slide the Chrome extension’s sidebar interface in and out of view, providing an easy way to manage the app's visibility while browsing.
+**Summary:**
+The user can manage the visibility of the Chrome extension’s interface using the native Side Panel API. The side panel allows the user to access the autofill app while browsing, without interfering with the job application workflow.
 
-**Rationale:**  
-To provide a seamless and intuitive user experience where the extension remains easily accessible, without requiring the user to fully close or exit the app interface.
+**Rationale:**
+To provide a smooth user experience where the extension remains accessible within Chrome’s side panel, offering a more integrated approach compared to a separate sidebar within a web page.
 
-**Users:**  
-Job seekers who use the Chrome extension while applying for jobs online.
+**Users:**
+Job seekers who use the Chrome extension to autofill job application forms online.
 
-**Preconditions:**  
-- The user has opened the Chrome extension while on a job application form.  
-- The sidebar is visible on the screen.
+**Preconditions:**
+- The user has installed the Chrome extension and has access to Chrome’s side panel.
+- The user is browsing a job application form.
 
-**Basic Course of Events:**  
-1. The user clicks the Arrow Button on the sidebar.  
-2. The sidebar slides out of view, minimizing the app's interface.  
-3. The user clicks the Arrow Button again.  
-4. The sidebar slides back into view, maximizing the app's interface.
+**Basic Course of Events:**
+1. The user opens the Chrome side panel using the extension’s icon from the browser toolbar.
+2. The side panel opens, displaying the autofill form interface inside the Chrome side panel.
+3. The user interacts with the autofill form (e.g., entering or loading saved information).
+4. The user can close or reopen the panel at any time using Chrome’s side panel management options.
 
-**Alternative Paths:**  
-- **AP-1**: If the app is minimized, the user can access the Arrow Button from the toolbar.  
-- **AP-2**: If the sidebar is collapsed, the user may have an option to configure its behavior to auto-hide after a period of inactivity.
+**Alternative Paths:**
+- **AP-1:** If the side panel is minimized or hidden, the user can reopen it via the extension's icon from the Chrome toolbar.
+- **AP-2:** The user may configure Chrome’s side panel to auto-hide based on their preferences.
 
-**Postconditions:**  
-- The sidebar is toggled in or out of view based on the user's actions.  
-- The user can continue to use the Chrome extension without disruption.
-
+**Postconditions:**
+- The autofill interface is accessible inside Chrome’s side panel.
+- The user can fill in forms without leaving the current webpage or exiting the panel.
