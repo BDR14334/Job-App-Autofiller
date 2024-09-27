@@ -26,39 +26,119 @@
             display: flex;
             gap: 10px;
         }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Autofill Form</h1>
-    <div>
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" placeholder="First Name">
+    <h1>Job App Autofiller</h1>
+    <div id="section-basic-info" class="section active">
+        <h2>Basic Info</h2>
+        <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" placeholder="First Name">
+        </div>
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" placeholder="Last Name">
+        </div>
+        <div>
+            <label for="address_1">Street Address:</label>
+            <input type="text" id="address_1" placeholder="Street Address">
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="City">
+        </div>
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state" placeholder="State">
+        </div>
+        <div>
+            <label for="country">Country:</label>
+            <input type="text" id="country" placeholder="Country">
+        </div>
     </div>
-    <div>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" placeholder="Last Name">
+
+    <!--Section 2: Education-->
+    <div id="section-education" class="section active">
+        <h2>Education</h2>
+        <div>
+            <label for="degree">Degree:</label>
+            <input type="text" id="degree" placeholder="Degree">
+        </div>
+        <div>
+            <label for="school">School:</label>
+            <input type="text" id="school" placeholder="School">
+        </div>
+        <div>
+            <label for="major">Major:</label>
+            <input type="text" id="major" placeholder="Major">
+        </div>
+        <div>
+            <label for="e_start_date"> Start Date:</label>
+            <input type="text" id="e_start_month" placeholder="MM">
+            <input type="text" id="e_start_year" placeholder="YYYY">
+        </div>
+        <div>
+            <label for="e_end_date"> End Date:</label>
+            <input type="text" id="e_end_month" placeholder="MM">
+            <input type="text" id="e_end_year" placeholder="YYYY">
+        </div>
     </div>
-    <div>
-        <label for="address_1">Street Address:</label>
-        <input type="text" id="address_1" placeholder="Street Address">
+
+    <!--Section 2: Work History-->
+    <div id="section-work-history" class="section active">
+        <h2>Work History</h2>
+        <div>
+            <label for="employer">Employer:</label>
+            <input type="text" id="employer" placeholder="Employer">
+        </div>
+        <div>
+            <label for="job_title">Job Title:</label>
+            <input type="text" id="job_title" placeholder="Job Title">
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" placeholder="Location">
+        </div>
+        <div>
+            <label for="wh_start_date"> Start Date:</label>
+            <input type="text" id="wh_start_month" placeholder="MM">
+            <input type="text" id="wh_start_year" placeholder="YYYY">
+        </div>
+        <div>
+            <label for="wh_end_date"> End Date:</label>
+            <input type="text" id="wh_end_month" placeholder="MM">
+            <input type="text" id="wh_end_year" placeholder="YYYY">
+        </div>
+        <div>
+            <label for="key_responsibilities">Key Responsibilities:</label>
+            <input type="text" id="key_responsibilities" placeholder="Key Responsibilities">
+        </div>
     </div>
-    <div>
-        <label for="city">City:</label>
-        <input type="text" id="city" placeholder="City">
-    </div>
-    <div>
-        <label for="state">State:</label>
-        <input type="text" id="state" placeholder="State">
-    </div>
-    <div>
-        <label for="country">Country:</label>
-        <input type="text" id="country" placeholder="Country">
-    </div>
+        
     <div class="button-container">
         <button id="save">Save</button>
         <button id="load">Load</button>
         <button id="autofill">Autofill</button>
     </div>
+
+    <!--Navigation Arrows-->
+    <div class="navigation">
+        <button id="prev-arrow">&larr; Previous</button>
+        <button id="next-arrow">Next &rarr;</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
