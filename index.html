@@ -10,21 +10,56 @@
             margin: 100px;
             margin-left: 100px;
         }
+        h1 {
+            text-align: center;
+        }
+            /* Input container centered */
+        .input-container {
+            display: flex;
+            flex-direction: column; /* Stack label above input */
+            align-items: flex-start; /* Align label and input to the left */
+            margin-bottom: 15px;
+            width: 100%; /* Take full width */
+        }
+
+        /* Label styling */
+        .input-container label {
+            margin-bottom: 5px; /* Space between label and input */
+            font-weight: bold; /* Optional: Make label text bold */
+        }
+
+        /* Input field styling */
+        .input-container input {
+            flex: 0.8;
+            max-width: 400px; /* Limits the input field width */
+        }
         input {
-            display: block;
             margin-bottom: 10px;
             padding: 8px;
             width: 100%;
             max-width: 300px;
+            border: none;
+            border-bottom: 0.2em solid #28c45c;
+            border-radius: 0.2em;
+            background-color: #f0f0f0;
+
         }
         button {
             padding: 10px 20px;
             margin-top: 10px;
             cursor: pointer;
+            background-color: #28c45c;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #1f9b48;
         }
         .button-container {
             display: flex;
             gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
         }
         .section {
             display: none;
@@ -43,27 +78,27 @@
     <h1>Job App Autofiller</h1>
     <div id="section-basic-info" class="section active">
         <h2>Basic Info</h2>
-        <div>
+        <div class="input-container">
             <label for="first_name">First Name:</label>
             <input type="text" id="first_name" placeholder="First Name">
         </div>
-        <div>
+        <div class="input-container">
             <label for="last_name">Last Name:</label>
             <input type="text" id="last_name" placeholder="Last Name">
         </div>
-        <div>
+        <div class="input-container">
             <label for="address_1">Street Address:</label>
             <input type="text" id="address_1" placeholder="Street Address">
         </div>
-        <div>
+        <div class="input-container">
             <label for="city">City:</label>
             <input type="text" id="city" placeholder="City">
         </div>
-        <div>
+        <div class="input-container">
             <label for="state">State:</label>
             <input type="text" id="state" placeholder="State">
         </div>
-        <div>
+        <div class="input-container">
             <label for="country">Country:</label>
             <input type="text" id="country" placeholder="Country">
         </div>
@@ -72,24 +107,24 @@
     <!--Section 2: Education-->
     <div id="section-education" class="section active">
         <h2>Education</h2>
-        <div>
+        <div class="input-container">
             <label for="degree">Degree:</label>
             <input type="text" id="degree" placeholder="Degree">
         </div>
-        <div>
+        <div class="input-container">
             <label for="school">School:</label>
             <input type="text" id="school" placeholder="School">
         </div>
-        <div>
+        <div class="input-container">
             <label for="major">Major:</label>
             <input type="text" id="major" placeholder="Major">
         </div>
-        <div>
+        <div class="input-container">
             <label for="e_start_date"> Start Date:</label>
             <input type="text" id="e_start_month" placeholder="MM">
             <input type="text" id="e_start_year" placeholder="YYYY">
         </div>
-        <div>
+        <div class="input-container">
             <label for="e_end_date"> End Date:</label>
             <input type="text" id="e_end_month" placeholder="MM">
             <input type="text" id="e_end_year" placeholder="YYYY">
@@ -99,29 +134,29 @@
     <!--Section 2: Work History-->
     <div id="section-work-history" class="section active">
         <h2>Work History</h2>
-        <div>
+        <div class="input-container">
             <label for="employer">Employer:</label>
             <input type="text" id="employer" placeholder="Employer">
         </div>
-        <div>
+        <div class="input-container"> 
             <label for="job_title">Job Title:</label>
             <input type="text" id="job_title" placeholder="Job Title">
         </div>
-        <div>
+        <div class="input-container">
             <label for="location">Location:</label>
             <input type="text" id="location" placeholder="Location">
         </div>
-        <div>
+        <div class="input-container">
             <label for="wh_start_date"> Start Date:</label>
             <input type="text" id="wh_start_month" placeholder="MM">
             <input type="text" id="wh_start_year" placeholder="YYYY">
         </div>
-        <div>
+        <div class="input-container">
             <label for="wh_end_date"> End Date:</label>
             <input type="text" id="wh_end_month" placeholder="MM">
             <input type="text" id="wh_end_year" placeholder="YYYY">
         </div>
-        <div>
+        <div class="input-container">
             <label for="key_responsibilities">Key Responsibilities:</label>
             <input type="text" id="key_responsibilities" placeholder="Key Responsibilities">
         </div>
