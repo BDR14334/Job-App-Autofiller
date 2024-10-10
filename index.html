@@ -61,6 +61,9 @@
             justify-content: center;
             margin-top: 20px;
         }
+        .job-container {
+            margin-bottom: 20px;
+        }
         .section {
             display: none;
         }
@@ -78,6 +81,18 @@
     <h1>Job App Autofiller</h1>
     <div id="section-basic-info" class="section active">
         <h2>Basic Info</h2>
+        <div class="input-container">
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" accept=".pdf, .doc, .docx">
+        </div>
+        <div class="input-container">
+            <label for="email_address">Email Address:</label>
+            <input type="text" id="email_address" placeholder="Email Address">
+        </div>
+        <div class="input-container">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" placeholder="Phone Number">
+        </div>
         <div class="input-container">
             <label for="first_name">First Name:</label>
             <input type="text" id="first_name" placeholder="First Name">
@@ -143,11 +158,11 @@
             <input type="text" id="job_title" placeholder="Job Title">
         </div>
         <div class="input-container">
-            <label for="location">Location:</label>
+            <label for="location-0">Location:</label>
             <input type="text" id="location" placeholder="Location">
         </div>
         <div class="input-container">
-            <label for="wh_start_date"> Start Date:</label>
+            <label for="wh_start_date-0"> Start Date:</label>
             <input type="text" id="wh_start_month" placeholder="MM">
             <input type="text" id="wh_start_year" placeholder="YYYY">
         </div>

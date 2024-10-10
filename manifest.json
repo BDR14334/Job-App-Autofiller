@@ -11,7 +11,8 @@
         "service_worker": "welcome/preface.js"
     },
     "side_panel": {
-        "default_path": "index.html"
+        "default_path": "index.html",
+        "default_title": "Autofill"
     },
     "action": {
         "default_title": "Click to open panel"
