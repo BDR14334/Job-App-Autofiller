@@ -22,6 +22,15 @@
             width: 100%; 
         }
 
+        .input-container textarea{
+            width: 100%; 
+            max-width: 500px; 
+            padding: 10px; 
+            border: 0.2em solid #28c45c; 
+            border-radius: 0.2em; 
+            background-color: #f0f0f0;
+        }
+
         .input-container select {
             margin-bottom: 5px; 
             font-size: 12;
@@ -34,13 +43,15 @@
         /* Label styling */
         .input-container label {
             margin-bottom: 5px; 
-            font-weight: bold; 
+            font-weight: bold;
+            text-align: left; 
         }
 
         /* Input field styling */
         .input-container input {
             flex: 0.8;
             max-width: 400px; 
+
         }
         input {
             margin-bottom: 10px;
@@ -60,13 +71,15 @@
             background-color: #28c45c;
             border-radius: 8px;
             font-weight: bold;
+            width: 125px;
+            text-align: center;
         }
         button:hover {
             background-color: #1f9b48;
         }
         .button-container {
             display: flex;
-            gap: 10px;
+            gap: 50px;
             justify-content: center;
             margin-top: 20px;
         }
@@ -151,7 +164,7 @@
         </div>
     </div>
 
-    <!--Section 2: Work History-->
+    <!--Section 3: Work History-->
     <div id="section-work-history" class="section active">
         <h2>Work History</h2>
         <div class="input-container">
@@ -182,7 +195,7 @@
         </div>
     </div>
     
-    <!--Section 2: Multiple Choice-->
+    <!--Section 4: Multiple Choice-->
     <div id="section-multiple choice" class="section active">
         <h2>Multiple Choice Responses</h2>
         <div class="input-container">
@@ -252,10 +265,32 @@
             </select>
         </div>
     </div>
+
+    <!-- Section 5: Essay Question -->
+    <div id="section-essay" class="section active">
+        <h2>Essay Question/Interview Prep</h2>
+        <div class="input-container">
+            <label for="essay_1">Tell us about yourself.</label>
+            <textarea id="essay_1" rows="6" placeholder="Write your answer here..." ></textarea>
+        </div>
+        <div class="input-container">
+            <label for="essay_2">Why are you interested in this position/company?</label>
+            <textarea id="essay_2" rows="6" placeholder="Write your answer here..." ></textarea>
+        </div>
+        <div class="input-container">
+            <label for="essay_3">Why should we hire you? </label>
+            <textarea id="essay_3" rows="6" placeholder="Write your answer here..." ></textarea>
+        </div>
+        <div class="input-container">
+            <label for="essay_4">What challenges did you face in your most recent job and how did you deal with them? </label>
+            <textarea id="essay_4" rows="6" placeholder="Write your answer here..." ></textarea>
+        </div>
+        
+    </div>
         
     <div class="button-container">
         <button id="save">Save</button>
-        <button id="load">Load</button>
+        
         <button id="autofill">Autofill</button>
     </div>
 

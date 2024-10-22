@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const saveButton = document.getElementById('save');
-    const loadButton = document.getElementById('load');
+    //const loadButton = document.getElementById('load');
     const autofillButton = document.getElementById('autofill');
 
     //const inputFields = ['first_name', 'last_name', 'address_1', 'city', 'state', 'country'];
@@ -18,8 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
         'wh_end_year': 'Work History', 'key_responsibilities': 'Work History',
         // Section 4: Multiple Choice
         'race': 'Multiple Choice Responses', 'orientation': 'Multiple Choice Responses', 
-        'disability': 'Multiple Choice Responses', 'veteran': 'Multiple Choice Responses'
+        'disability': 'Multiple Choice Responses', 'veteran': 'Multiple Choice Responses',
+        // Section 5: Essay Questions
+        'essay_1': 'Essay Question/Interview Prep', 'essay_2': 'Essay Question/Interview Prep',
+        'essay_3': 'Essay Question/Interview Prep', 'essay_4': 'Essay Question/Interview Prep'
     };
+
+      // Load form data from Chrome storage on page load
+      chrome.storage.local.get('formData', ({ formData }) => {
+        if (formData) {
+            Object.keys(inputFields).forEach(id => {
+                const input = document.getElementById(id);
+                if(input) {
+                    input.value = formData[id] || '';
+                }
+            });
+            console.log('Form data loaded on startup.');
+        } else {
+            console.log('No saved data found.');
+        }
+    });
     
     // Save form data to Chrome storage
     saveButton.addEventListener('click', () => {
@@ -34,22 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         chrome.storage.local.set({ formData }, () => {
             console.log('Form data saved.');
-        });
-    });
-
-    // Load form data from Chrome storage
-    loadButton.addEventListener('click', () => {
-        chrome.storage.local.get('formData', ({ formData }) => {
-            if (formData) {
-                Object.keys(inputFields).forEach(id => {
-                    const input = document.getElementById(id);
-                    if(input) {
-                        input.value = formData[id] || '';
-                    }
-                    
-                });
-                console.log('Form data loaded.');
-            }
+            // Temporarily show "Saved!" text
+            saveButton.textContent = 'Saved!';
+            setTimeout(() => {
+                saveButton.textContent = 'Save';
+            }, 5000); 
         });
     });
 
