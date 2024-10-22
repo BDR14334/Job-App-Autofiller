@@ -16,22 +16,31 @@
             /* Input container centered */
         .input-container {
             display: flex;
-            flex-direction: column; /* Stack label above input */
-            align-items: flex-start; /* Align label and input to the left */
+            flex-direction: column; 
+            align-items: flex-start; 
             margin-bottom: 15px;
-            width: 100%; /* Take full width */
+            width: 100%; 
+        }
+
+        .input-container select {
+            margin-bottom: 5px; 
+            font-size: 12;
+            width: 100%;
+            padding-top: 5px;
+            border: 0.2em solid #28c45c;
+            border-radius: 0.2em;
         }
 
         /* Label styling */
         .input-container label {
-            margin-bottom: 5px; /* Space between label and input */
-            font-weight: bold; /* Optional: Make label text bold */
+            margin-bottom: 5px; 
+            font-weight: bold; 
         }
 
         /* Input field styling */
         .input-container input {
             flex: 0.8;
-            max-width: 400px; /* Limits the input field width */
+            max-width: 400px; 
         }
         input {
             margin-bottom: 10px;
@@ -81,10 +90,6 @@
     <h1>Job App Autofiller</h1>
     <div id="section-basic-info" class="section active">
         <h2>Basic Info</h2>
-        <div class="input-container">
-            <label for="resume">Upload Resume:</label>
-            <input type="file" id="resume" accept=".pdf, .doc, .docx">
-        </div>
         <div class="input-container">
             <label for="email_address">Email Address:</label>
             <input type="text" id="email_address" placeholder="Email Address">
@@ -174,6 +179,77 @@
         <div class="input-container">
             <label for="key_responsibilities">Key Responsibilities:</label>
             <input type="text" id="key_responsibilities" placeholder="Key Responsibilities">
+        </div>
+    </div>
+    
+    <!--Section 2: Multiple Choice-->
+    <div id="section-multiple choice" class="section active">
+        <h2>Multiple Choice Responses</h2>
+        <div class="input-container">
+            <label for="race">Race</label>
+            <select id="race" name="race">
+              <option value="" selected="">--</option>
+              <option value="Hispanic or Latino">Hispanic or Latino</option>
+              <option value="White (Not Hispanic or Latino)">
+                White (Not Hispanic or Latino)
+              </option>
+              <option value="Black or African American (Not Hispanic or Latino)">
+                Black or African American (Not Hispanic or Latino)
+              </option>
+              <option value="Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)">
+                Native Hawaiian or Other Pacific Islander (Not Hispanic or
+                Latino)
+              </option>
+              <option value="Asian (Not Hispanic or Latino)">
+                Asian (Not Hispanic or Latino)
+              </option>
+              <option value="American Indian or Alaska Native (Not Hispanic or Latino)">
+                American Indian or Alaska Native (Not Hispanic or Latino)
+              </option>
+              <option value="Two or More Races (Not Hispanic or Latino)">
+                Two or More Races (Not Hispanic or Latino)
+              </option>
+              <option value="Decline to self-identify">
+                Decline to self-identify
+              </option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="orientation">Sexual Orientation</label>
+            <select id="orientation" name="orientation">
+              <option value="" selected="">--</option>
+              <option value="asexual">Asexual / Aromantic</option>
+              <option value="bisexual">Bisexual</option>
+              <option value="gay">Gay</option>
+              <option value="lesbian">Lesbian</option>
+              <option value="heterosexual">Heterosexual / Straight</option>
+              <option value="pansexual">
+                Pansexual, Demisexual, or Omnisexual
+              </option>
+              <option value="queer">Queer</option>
+              <option value="other">Other</option>
+              <option value="decline">Prefer not to say</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="disability">Disability Status</label>
+            <select id="disability" name="disability">
+              <option value="" selected="">--</option>
+              <option value="yes">Yes, I have a disability</option>
+              <option value="no">No, I do not have a disability</option>
+              <option value="decline">Prefer not to say</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="veteran">Veteran Status</label>
+            <select id="veteran" name="veteran">
+              <option value="" selected="">--</option>
+              <option value="I am a veteran">I am a veteran</option>
+              <option value="I am not a veteran">I am not a veteran</option>
+              <option value="Decline to self-identify">
+                Decline to self-identify
+              </option>
+            </select>
         </div>
     </div>
         

@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "My Extension",
+    "name": "J.O.B. Application Autofiller",
     "description": "Automatically fill Workday job application forms",
     "icons": {
         "32": "icon8.png"
@@ -17,12 +17,6 @@
     "action": {
         "default_title": "Click to open panel"
       },
-    "content_scripts": [
-        {
-            "js": ["content.js"],
-            "matches": ["https://www.google.com/*"]
-        }
-    ],
     "permissions": [
         "sidePanel",
         "contextMenus",
@@ -31,6 +25,15 @@
         "declarativeContent",
         "scripting",
         "windows"
+    ],
+    "host_permissions": [
+        "https://*/*" 
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://*/*"],
+            "js": ["content.js"]
+        }
     ]
 
     
