@@ -210,7 +210,7 @@ Job seekers using the app to manage and store their job application information.
 - The user is notified of the successful save or any errors that occurred.
 
 
-## UC-8: Autofill Button
+## UC-7: Autofill Button
 
 **Summary:**  
 The Autofill Button allows the user to automatically fill in the job application form with the data stored in the app.
@@ -242,7 +242,7 @@ Job seekers who want to use their stored information to apply for jobs efficient
 - The user submits the job application or edits the information as needed.
 
 
-## UC-9: Manage Autofill App with Chrome Side Panel
+## UC-8: Manage Autofill App with Chrome Side Panel
 
 **Summary:**
 The user can manage the visibility of the Chrome extension’s interface using the native Side Panel API. The side panel allows the user to access the autofill app while browsing, without interfering with the job application workflow.
