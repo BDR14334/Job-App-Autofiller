@@ -210,36 +210,6 @@ Job seekers using the app to manage and store their job application information.
 - The user is notified of the successful save or any errors that occurred.
 
 
-## UC-7: Load Button
-
-**Summary:**  
-The Load Button allows the user to load previously saved data from the database into the app for editing or use in a job application.
-
-**Rationale:**  
-To enable the user to quickly access and modify their previously saved information, making it easier to update and use in new job applications.
-
-**Users:**  
-Job seekers who have previously saved data in the app's database.
-
-**Preconditions:**  
-- The user has saved data in the app's database.  
-- The app is connected to the database.
-
-**Basic Course of Events:**  
-1. The user clicks the Load Button.  
-2. The app retrieves the saved data from the database.  
-3. The app populates the data fields with the loaded information.  
-4. The user reviews and, if necessary, edits the loaded data.
-
-**Alternative Paths:**  
-- **AP-1**: If no data is found, the app displays a message indicating that there is no saved data available.  
-- **AP-2**: If the database connection fails, the app displays an error message and prompts the user to try loading again.
-
-**Postconditions:**  
-- The saved data is loaded into the app for the user to review or edit.  
-- The user is notified if the load was successful or if any issues occurred.
-
-
 ## UC-8: Autofill Button
 
 **Summary:**  
