@@ -10,10 +10,17 @@
             margin: 100px;
             margin-left: 100px;
         }
-        h1 {
-            text-align: center;
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-            /* Input container centered */
+        .logo {
+            height: 4rem; 
+            margin-right: 10px;
+        }
+        
         .input-container {
             display: flex;
             flex-direction: column; 
@@ -23,8 +30,7 @@
         }
 
         .input-container textarea{
-            width: 100%; 
-            max-width: 500px; 
+            width: 100%;  
             padding: 10px; 
             border: 0.2em solid #28c45c; 
             border-radius: 0.2em; 
@@ -32,12 +38,13 @@
         }
 
         .input-container select {
-            margin-bottom: 5px; 
-            font-size: 12;
+            margin-bottom: 10px;
+            padding: 8px;
             width: 100%;
-            padding-top: 5px;
-            border: 0.2em solid #28c45c;
+            border: none;
+            border-bottom: 0.2em solid #28c45c;
             border-radius: 0.2em;
+            background-color: #f0f0f0;
         }
 
         /* Label styling */
@@ -48,16 +55,14 @@
         }
 
         /* Input field styling */
-        .input-container input {
+        .input-container select {
             flex: 0.8;
-            max-width: 400px; 
-
+            width: 100%;
         }
         input {
             margin-bottom: 10px;
             padding: 8px;
             width: 100%;
-            max-width: 300px;
             border: none;
             border-bottom: 0.2em solid #28c45c;
             border-radius: 0.2em;
@@ -100,7 +105,10 @@
     </style>
 </head>
 <body>
-    <h1>Job App Autofiller</h1>
+    <div class="header">
+        <img class="logo" src="Job-App-Autofiller-Logo.png" alt="Job App Autofiller Logo">
+        <h1>Job App Autofiller</h1>
+    </div>
     <div id="section-basic-info" class="section active">
         <h2>Basic Info</h2>
         <div class="input-container">
@@ -132,6 +140,10 @@
             <input type="text" id="state" placeholder="State">
         </div>
         <div class="input-container">
+            <label for="zip_code">Zip Code:</label>
+            <input type="text" id="zip_code" placeholder="Zip Code">
+        </div>
+        <div class="input-container">
             <label for="country">Country:</label>
             <input type="text" id="country" placeholder="Country">
         </div>
@@ -142,7 +154,20 @@
         <h2>Education</h2>
         <div class="input-container">
             <label for="degree">Degree:</label>
-            <input type="text" id="degree" placeholder="Degree">
+            <select id="degree" name="degree">
+                <option value="" selected="">--</option>
+                <option value="Associates of Arts (A.A)">Associates of Arts (A.A)</option>
+                <option value="Associates of Science (A.S)">Associates of Science (A.S)</option>
+                <option value="Doctor of Philosophy (Ph.D)">Doctor of Philosophy (Ph.D)</option>
+                <option value="Bachelor of Arts (B.A)">Bachelor of Arts (B.A)</option>
+                <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
+                <option value="Juris Doctor (J.D)">Juris Doctor (J.D)</option>
+                <option value="Master of Arts (M.A)">Master of Arts (M.A)</option>
+                <option value="Bachelor of Science (B.S)">Bachelor of Science (B.S)</option>
+                <option value="Master of Science (M.S)">Master of Science (M.S)</option>
+                <option value="GED">GED</option>
+                <option value="High School">High School</option>
+            </select>
         </div>
         <div class="input-container">
             <label for="school">School:</label>
@@ -168,7 +193,7 @@
     <div id="section-work-history" class="section active">
         <h2>Work History</h2>
         <div class="input-container">
-            <label for="employer">Employer:</label>
+            <label for="employer">Company:</label>
             <input type="text" id="employer" placeholder="Employer">
         </div>
         <div class="input-container"> 
@@ -176,7 +201,7 @@
             <input type="text" id="job_title" placeholder="Job Title">
         </div>
         <div class="input-container">
-            <label for="location-0">Location:</label>
+            <label for="location">Location:</label>
             <input type="text" id="location" placeholder="Location">
         </div>
         <div class="input-container">
@@ -191,15 +216,39 @@
         </div>
         <div class="input-container">
             <label for="key_responsibilities">Key Responsibilities:</label>
-            <input type="text" id="key_responsibilities" placeholder="Key Responsibilities">
+            <textarea id="key_responsibilities" rows="6" placeholder="Write your answer here..." ></textarea>
         </div>
     </div>
     
-    <!--Section 4: Multiple Choice-->
-    <div id="section-multiple choice" class="section active">
-        <h2>Multiple Choice Responses</h2>
+    <!--Section 4: Application Questions-->
+    <div id="section-application-questions" class="section active">
+        <h2>Application Questions</h2>
         <div class="input-container">
-            <label for="race">Race</label>
+            <label for="citizenship">Are you legally authorized to work in the country where this role is located?</label>
+            <select id="citizenship" name="citizenship">
+              <option value="" selected="">--</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="sponsorship">Will you now or in the future require sponsorship?</label>
+            <select id="sponsorship" name="sponsorship">
+              <option value="" selected="">--</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+              <option value="" selected="">--</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="race">Race:</label>
             <select id="race" name="race">
               <option value="" selected="">--</option>
               <option value="Hispanic or Latino">Hispanic or Latino</option>
@@ -228,7 +277,7 @@
             </select>
         </div>
         <div class="input-container">
-            <label for="orientation">Sexual Orientation</label>
+            <label for="orientation">Sexual Orientation:</label>
             <select id="orientation" name="orientation">
               <option value="" selected="">--</option>
               <option value="asexual">Asexual / Aromantic</option>
@@ -245,7 +294,7 @@
             </select>
         </div>
         <div class="input-container">
-            <label for="disability">Disability Status</label>
+            <label for="disability">Disability Status:</label>
             <select id="disability" name="disability">
               <option value="" selected="">--</option>
               <option value="yes">Yes, I have a disability</option>
@@ -254,7 +303,7 @@
             </select>
         </div>
         <div class="input-container">
-            <label for="veteran">Veteran Status</label>
+            <label for="veteran">Veteran Status:</label>
             <select id="veteran" name="veteran">
               <option value="" selected="">--</option>
               <option value="I am a veteran">I am a veteran</option>
@@ -290,7 +339,6 @@
         
     <div class="button-container">
         <button id="save">Save</button>
-        
         <button id="autofill">Autofill</button>
     </div>
 

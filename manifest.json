@@ -3,7 +3,7 @@
     "name": "J.O.B. Application Autofiller",
     "description": "Automatically fill Workday job application forms",
     "icons": {
-        "32": "icon8.png"
+        "32": "Job-App-Autofiller-Logo.png"
     },
     "version": "1.0.0",
     "minimum_chrome_version": "116",
