@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const saveButton = document.getElementById('save');
-    //const loadButton = document.getElementById('load');
     const autofillButton = document.getElementById('autofill');
 
-    //const inputFields = ['first_name', 'last_name', 'address_1', 'city', 'state', 'country'];
     // Input fields for each section
     const inputFields = {
         // Section 1: Basic Info
         'email_address': 'Basic Info', 'phone_number': 'Basic Info', 'first_name': 'Basic Info', 'last_name': 'Basic Info', 
-        'address_1': 'Basic Info', 'city': 'Basic Info', 'state': 'Basic Info', 'country': 'Basic Info',
+        'address_1': 'Basic Info', 'city': 'Basic Info', 'state': 'Basic Info', 'zip_code': 'Basic Info', 'country': 'Basic Info',
         // Section 2: Education
         'degree': 'Education', 'school': 'Education', 'major': "Education", 'e_start_month': 'Education', 
         'e_start_year': 'Education', 'e_end_month': 'Education', 'e_end_year': 'Education',
@@ -16,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'employer': 'Work History', 'job_title': 'Work History', 'location': 'Work History', 
         'wh_start_month': 'Work History', 'wh_start_year': 'Work History', 'wh_end_month': 'Work History', 
         'wh_end_year': 'Work History', 'key_responsibilities': 'Work History',
-        // Section 4: Multiple Choice
-        'race': 'Multiple Choice Responses', 'orientation': 'Multiple Choice Responses', 
-        'disability': 'Multiple Choice Responses', 'veteran': 'Multiple Choice Responses',
+        // Section 4: Application Questions
+        'citizenship': 'Application Questions', 'sponsorship' : 'Application Questions', 'gender': 'Application Questions', 'race': 'Application Questions', 
+        'orientation': 'Application Questions', 'disability': 'Application Questions', 'veteran': 'Application Questions',
         // Section 5: Essay Questions
         'essay_1': 'Essay Question/Interview Prep', 'essay_2': 'Essay Question/Interview Prep',
         'essay_3': 'Essay Question/Interview Prep', 'essay_4': 'Essay Question/Interview Prep'
