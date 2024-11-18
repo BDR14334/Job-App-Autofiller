@@ -1,24 +1,248 @@
 console.log('Content script loaded!');
 
+function getLabelTextForInput(inputId) {
+  const label = document.querySelector(`label[for='${inputId}']`);
+  return label ? label.textContent.trim() : '';
+}
+
+// Function to find the input field based on label text
+function findFieldByLabel(labelText) {
+  const labels = Array.from(document.querySelectorAll('label'));
+
+  // Look for a label that matches the text we're searching for
+  const matchingLabel = labels.find(label =>
+    new RegExp(labelText, 'i').test(label.textContent)
+  );
+
+  // If we found a matching label, find its associated input
+  if(matchingLabel) {
+    const inputId = matchingLabel.getAttribute('for');
+    return inputId ? document.getElementById(inputId) : matchingLabel.querySelector('input');
+  }
+  return null;
+}
+
+// Function to dynamically select dropdown options
+async function selectDropdownOption(labelText, value) {
+  try {
+    // Locate the label associated with the dropdown
+    const label = Array.from(document.querySelectorAll('label')).find((lbl) =>
+      lbl.textContent.trim().includes(labelText)
+    );
+    if (!label) throw new Error(`Label with text "${labelText}" not found.`);
+
+    // Try to find a standard dropdown
+    const dropdownButton = label?.parentElement.querySelector('button[aria-haspopup="listbox"]');
+    if (dropdownButton) {
+      dropdownButton.click(); // Open dropdown
+      await waitForOptions();
+
+      const matchingOption = findOption(value);
+      if (!matchingOption) throw new Error(`Option "${value}" not found for "${labelText}".`);
+
+      matchingOption.click(); // Select option
+      console.log(`Selected "${value}" for dropdown "${labelText}".`);
+      return;
+    }
+
+    // Try to find a multi-select dropdown
+    const multiSelectContainer = label?.parentElement.querySelector('[data-uxi-widget-type="multiselect"]');
+    if (multiSelectContainer) {
+      const inputField = multiSelectContainer.querySelector('input[placeholder="Search"]');
+      if (!inputField) throw new Error(`Input field not found for multi-select "${labelText}".`);
+
+      inputField.focus();
+      inputField.value = value;
+      inputField.dispatchEvent(new Event('input', { bubbles: true })); // Simulate typing
+      await waitForOptions();
+
+      const matchingOption = findOption(value);
+      if (!matchingOption) throw new Error(`Option "${value}" not found for "${labelText}".`);
+
+      matchingOption.click(); // Select option
+      console.log(`Selected "${value}" for multi-select "${labelText}".`);
+      return;
+    }
+
+    throw new Error(`No dropdown found for "${labelText}".`);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// Helper to wait for dropdown options to load
+function waitForOptions() {
+  return new Promise((resolve) => setTimeout(resolve, 500));
+}
+
+// Helper to find matching option
+function findOption(value) {
+  return Array.from(document.querySelectorAll('ul[role="listbox"] li')).find((option) =>
+    option.textContent.trim().toLowerCase().includes(value.toLowerCase())
+  );
+}
+
+// Function to autofill date fields with month and year input sections
+function autofillDateField(month, year, labelText) {
+  const label = Array.from(document.querySelectorAll('label')).find(lbl => 
+    lbl.textContent.includes(labelText)
+  );
+
+  if (label) {
+    // Locate the container holding the month and year fields
+    const dateContainer = label.closest('div').querySelector('div[role="group"]');
+
+    if (dateContainer) {
+      // Dynamically find the month and year input elements
+      const monthInput = Array.from(dateContainer.querySelectorAll('input')).find(input =>
+        input.getAttribute('aria-label') === 'Month'
+      );
+      const yearInput = Array.from(dateContainer.querySelectorAll('input')).find(input =>
+        input.getAttribute('aria-label') === 'Year'
+      );
+
+      if (monthInput || yearInput) {
+        if (month && monthInput) {
+          monthInput.value = month;
+          monthInput.dispatchEvent(new Event('input', { bubbles: true }));
+          monthInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        
+        if (year && yearInput) {
+          yearInput.value = year;
+          yearInput.dispatchEvent(new Event('input', { bubbles: true }));
+          yearInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        console.log(`Filled ${labelText} with ${month || ''}/${year || ''}`);
+      } else {
+        console.warn(`Month or year input not found for ${labelText}`);
+      }
+    } else {
+      console.warn(`Date container not found for label: ${labelText}`);
+    }
+  }
+}
+
+// Function to autofill textarea fields
+function autofillTextField(text, labelText) {
+  // Find the label by matching its text content
+  const label = Array.from(document.querySelectorAll('label')).find(lbl => 
+    new RegExp(labelText, 'i').test(lbl.textContent)
+  );
+
+  if (label) {
+    // Find the associated textarea
+    const inputId = label.getAttribute('for');
+    let textArea = inputId ? document.getElementById(inputId) : null;
+
+    // If textarea is not found by ID, search within the container
+    if (!textArea) {
+      textArea = label.closest('div').querySelector('textarea');
+    }
+
+    // Ensure the textarea was found and filled
+    if (textArea) {
+      // Debugging to check if the textarea can be modified
+      console.log(`Found textarea for label "${labelText}":`, textArea);
+
+      // Focus and fill the textarea
+      textArea.focus();
+      textArea.value = text;
+      textArea.dispatchEvent(new Event('input', { bubbles: true }));
+      textArea.dispatchEvent(new Event('change', { bubbles: true }));
+
+      console.log(`Filled textarea for label: "${labelText}" with text: "${text}"`);
+    } else {
+      console.warn(`Textarea not found for label: "${labelText}"`);
+    }
+  } else {
+    console.warn(`Label not found for text: "${labelText}"`);
+  }
+}
+
 // Function to autofill form fields
-function autofillForm(data) {
+async function autofillForm(data) {
   const fieldMappings = {
-    first_name: ['edit-field-job-application-first-name-0-value','firstName-input-id'],
-    last_name: ['edit-field-job-application-last-name-0-value'],
-    phone_number: ['edit-field-job-application-phone-0-value'],
-    email_address: ['edit-field-job-application-email-0-value']
+    //Basic Info
+    first_name: "First Name",
+    last_name: "Last Name",
+    phone_number: "Phone Number",
+    email_address: ["Email Address", "Email"],
+    address_1: ["Address Line 1", "Address"],
+    city: "City",
+    zip_code: ["Postal Code", "Postal/Zip code" ],
+    state: "State",
+    country: ["Country", "Country/Region"],
+    
+    //Work History
+    employer: "Company",
+    job_title: "Job Title",
+    location: "Location",
+    wh_start_year:"From",
+    wh_start_month:"From",
+    wh_end_year:"To",
+    wh_end_month: "To",
+    key_responsibilities: "Role Description",
+
+    //Education
+    school: "School",
+    degree: "Degree",
+    major: "Field of Study",
+    e_start_year: "From",  
+    e_end_year: "To",      
+    e_start_month: "From", 
+    e_end_month: "To",
+    
+    //Application Questions
+    citizenship: "Are you legally authorized to work in the country where this role is located?",
+    sponsorship: "Will you now or in the future require sponsorship?",
+    //gender: "",
+    //orientation: "",
+    //disability: "",
+    //veteran: ""
   }; //
 
-  for (const [key, fieldIds] of Object.entries(fieldMappings)) {
+  // Define dropdown fields for streamlined checking
+  const dropdownFields = [
+    'state', 'country', 'degree', 'major', 'gender', 'race', 
+    'citizenship', 'sponsorship'
+  ];
+
+  // Define date fields
+  const dateFields = [
+    'wh_start_month', 'wh_start_year', 'wh_end_month', 'wh_end_year',
+    'e_start_month', 'e_start_year', 'e_end_month', 'e_end_year'
+  ];
+
+  for (const [key, labelText] of Object.entries(fieldMappings)) {
     if (data[key]) {
-      fieldIds.forEach(id => {
-        const element = document.getElementById(id);
+      if (dropdownFields.includes(key)) {
+        // Use the custom dropdown selector function for these fields
+        await selectDropdownOption(labelText, data[key]);
+      } else if (dateFields.includes(key)) {
+        // Call autofillDateField with grouped month/year values
+        if (key.startsWith('wh')) {
+          autofillDateField(data.wh_start_month, data.wh_start_year, "From");
+          autofillDateField(data.wh_end_month, data.wh_end_year, "To");
+        } else if (key.startsWith('e')) {
+          autofillDateField(data.e_start_month, data.e_start_year, "From");
+          autofillDateField(data.e_end_month, data.e_end_year, "To");
+        }
+      } else if (key === 'key_responsibilities') {
+        // Autofill the Role Description field
+        autofillTextField(data[key], labelText);
+      } else {
+        // Handle other input fields
+        let element = findFieldByLabel(labelText);
         if (element) {
           element.value = data[key];
           element.dispatchEvent(new Event('input', { bubbles: true }));
           element.dispatchEvent(new Event('change', { bubbles: true }));
+        } else {
+          console.log(`Could not find element for ${labelText}`);
         }
-      });
+      }
     }
   }
 
