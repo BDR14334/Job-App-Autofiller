@@ -1,4 +1,4 @@
-//extension icon click
+// extension icon click
 chrome.action.onClicked.addListener((tab) => {
   chrome.sidePanel.open({ tabId: tab.id });
   chrome.sidePanel.setOptions({
@@ -23,14 +23,5 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   }
 });
 
-// chrome.runtime.onMessage.addListener((message, sender) => {
-//   if (message.type === 'open_side_panel') {
-//     chrome.sidePanel.open({ tabId: sender.tab.id });
-//     chrome.sidePanel.setOptions({
-//       tabId: sender.tab.id,
-//       path: 'welcome.html',
-//       enabled: true
-//     });
-//   }
-// });
+
 

@@ -54,40 +54,7 @@ Job seekers who frequently apply to multiple job positions.
 - The basic information fields on the job application are populated with the user’s data.
 - The user successfully submits the job application or continues to fill out the remaining sections.
 
-Here are the use cases formatted for your README.md file with proper markdown syntax:
-
-## UC-2: Attach Resume
-
-**Summary:**  
-The app requests and stores the user's resume, allowing it to automatically attach the resume to job applications.
-
-**Rationale:**  
-To ensure that a copy of the user's resume can be quickly uploaded to job applications.
-
-**Users:**  
-Job seekers who need to attach a resume to multiple job applications.
-
-**Preconditions:**  
-- The user has uploaded a resume to the app.  
-- The job application requires a resume attachment.
-
-**Basic Course of Events:**  
-1. The user accesses the job application through the app.  
-2. The app detects the requirement for a resume attachment.  
-3. The app retrieves the stored resume from the user’s profile.  
-4. The app automatically attaches the resume to the job application by the click of a button.  
-5. The user reviews the attachment and submits the job application.
-
-**Alternative Paths:**  
-- **AP-1**: If the user has not uploaded a resume, the app prompts the user to do so before continuing.  
-- **AP-2**: If multiple resumes are stored, the app allows the user to select which resume to attach.
-
-**Postconditions:**  
-- The resume is attached to the job application.  
-- The user successfully submits the job application.
-
-
-## UC-3: Autofill Education History
+## UC-2: Autofill Education History
 
 **Summary:**  
 The app requests and stores the user's education history and automatically fills in the relevant sections of a job application.
@@ -104,7 +71,7 @@ Job seekers with educational qualifications required for job applications.
 
 **Basic Course of Events:**  
 1. The user accesses the job application through the app.  
-2. The app detects the fields for education history (school name, location, major, year graduated, GPA).  
+2. The app detects the fields for education history (school name, location, major, year graduated).  
 3. The app retrieves the stored education history from the user’s profile.  
 4. The app automatically fills in the education details on the job application form by the click of a button.  
 5. The user reviews and submits the job application.
@@ -118,7 +85,7 @@ Job seekers with educational qualifications required for job applications.
 - The user successfully submits the job application.
 
 
-## UC-4: Autofill Employment History
+## UC-3: Autofill Employment History
 
 **Summary:**  
 The app requests and stores the user's employment history and automatically fills in the relevant sections of a job application.
@@ -149,7 +116,7 @@ Job seekers with previous work experience relevant to job applications.
 - The user successfully submits the job application.
 
 
-## UC-5: Autofill Common Short Essay Questions
+## UC-4: Autofill Common Short Essay Questions
 
 **Summary:**  
 The app stores and manages common short essay answers provided by the user and automatically fills them into job applications that request such essays.
@@ -179,7 +146,7 @@ Job seekers who frequently encounter similar short essay questions in job applic
 - The user successfully submits the job application.
 
 
-## UC-6: Save Button
+## UC-5: Save Button
 
 **Summary:**                                                                                                              
 The Save Button allows the user to save the data they have entered into the app's database for future use.
@@ -210,7 +177,7 @@ Job seekers using the app to manage and store their job application information.
 - The user is notified of the successful save or any errors that occurred.
 
 
-## UC-7: Autofill Button
+## UC-6: Autofill Button
 
 **Summary:**  
 The Autofill Button allows the user to automatically fill in the job application form with the data stored in the app.
@@ -242,7 +209,7 @@ Job seekers who want to use their stored information to apply for jobs efficient
 - The user submits the job application or edits the information as needed.
 
 
-## UC-8: Manage Autofill App with Chrome Side Panel
+## UC-7: Manage Autofill App with Chrome Side Panel
 
 **Summary:**
 The user can manage the visibility of the Chrome extension’s interface using the native Side Panel API. The side panel allows the user to access the autofill app while browsing, without interfering with the job application workflow.
@@ -270,3 +237,33 @@ Job seekers who use the Chrome extension to autofill job application forms onlin
 **Postconditions:**
 - The autofill interface is accessible inside Chrome’s side panel.
 - The user can fill in forms without leaving the current webpage or exiting the panel.
+
+## Generate Outline for Essay Questions 
+
+**Summary**
+This feature allows users to generate pre-written outlines for common essay questions by clicking a "Generate Outline" button. The outlines are hardcoded in the extension and tailored to typical job application or interview questions. Once generated, the outline is populated directly into the corresponding input field for the user to review and edit.
+
+**Rationale**
+The goal is to provide job seekers with quick, structured responses to common essay questions, helping them save time and effort while preparing personalized answers.
+
+**Users**
+- Job seekers preparing essay-style responses for job applications or interviews.
+
+**Preconditions**
+- The Chrome extension is installed and functional.
+- The user is on the extension interface where essay question fields are present.
+- Hardcoded outlines are mapped to essay question IDs.
+
+**Basic Course of Events**
+1. The user navigates to the essay preparation section of the extension interface.
+2. The user clicks the "Generate Outline" button next to an essay question field.
+3. The extension retrieves the hardcoded outline corresponding to the essay question ID.
+4. The hardcoded outline is populated into the relevant input field for the user to review.
+
+**Alternative Paths**
+- **AP-1:** If the corresponding hardcoded response is missing for a question, the extension logs an error message and leaves the input field unchanged.
+- **AP-2:** The user can manually edit the pre-filled outline to further customize their response.
+
+**Postconditions**
+- The essay input field is populated with a pre-written outline.
+- Users can modify or use the outline as is.

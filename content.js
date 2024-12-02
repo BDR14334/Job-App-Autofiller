@@ -22,6 +22,27 @@ function findFieldByLabel(labelText) {
   return null;
 }
 
+function autofillInputById(inputId, value) {
+  // Locate the input field by ID
+  const inputField = document.getElementById(inputId);
+
+  if (inputField) {
+    // Set focus on the input field
+    inputField.focus();
+
+    // Set the value of the input field
+    inputField.value = value;
+
+    // Trigger events to simulate user input and notify JavaScript frameworks
+    inputField.dispatchEvent(new Event('input', { bubbles: true })); // Triggers input event
+    inputField.dispatchEvent(new Event('change', { bubbles: true })); // Triggers change event
+
+    console.log(`Autofilled "${value}" into field with ID "${inputId}".`);
+  } else {
+    console.log(`Input field with ID "${inputId}" not found.`);
+  }
+}
+
 // Function to dynamically select dropdown options
 async function selectDropdownOption(labelText, value) {
   try {
@@ -143,7 +164,7 @@ function autofillTextField(text, labelText) {
 
     // Ensure the textarea was found and filled
     if (textArea) {
-      // Debugging to check if the textarea can be modified
+      // Debugging check if the textarea can be modified
       console.log(`Found textarea for label "${labelText}":`, textArea);
 
       // Focus and fill the textarea
@@ -164,18 +185,18 @@ function autofillTextField(text, labelText) {
 // Function to autofill form fields
 async function autofillForm(data) {
   const fieldMappings = {
-    //Basic Info
+    // Basic Info
     first_name: "First Name",
     last_name: "Last Name",
     phone_number: "Phone Number",
-    email_address: ["Email Address", "Email"],
-    address_1: ["Address Line 1", "Address"],
+    email_address: "Email",
+    address_1: "Address",
     city: "City",
-    zip_code: ["Postal Code", "Postal/Zip code" ],
+    zip_code: "Postal Code",
     state: "State",
-    country: ["Country", "Country/Region"],
+    country: "Country",
     
-    //Work History
+    // Work History
     employer: "Company",
     job_title: "Job Title",
     location: "Location",
@@ -185,7 +206,7 @@ async function autofillForm(data) {
     wh_end_month: "To",
     key_responsibilities: "Role Description",
 
-    //Education
+    // Education
     school: "School",
     degree: "Degree",
     major: "Field of Study",
@@ -194,16 +215,18 @@ async function autofillForm(data) {
     e_start_month: "From", 
     e_end_month: "To",
     
-    //Application Questions
+    // Application Questions
     citizenship: "Are you legally authorized to work in the country where this role is located?",
-    sponsorship: "Will you now or in the future require sponsorship?",
-    //gender: "",
+    sponsorship: "sponsorship",
+    gender: "gender",
+    race: "race",
     //orientation: "",
-    //disability: "",
-    //veteran: ""
+    disability: "disablility",
+    veteran: "veteran",
+    essay_2: "why"
   }; //
 
-  // Define dropdown fields for streamlined checking
+  // Define dropdown fields 
   const dropdownFields = [
     'state', 'country', 'degree', 'major', 'gender', 'race', 
     'citizenship', 'sponsorship'
@@ -221,7 +244,7 @@ async function autofillForm(data) {
         // Use the custom dropdown selector function for these fields
         await selectDropdownOption(labelText, data[key]);
       } else if (dateFields.includes(key)) {
-        // Call autofillDateField with grouped month/year values
+        // call autofillDateField with grouped month/year values
         if (key.startsWith('wh')) {
           autofillDateField(data.wh_start_month, data.wh_start_year, "From");
           autofillDateField(data.wh_end_month, data.wh_end_year, "To");
@@ -233,20 +256,25 @@ async function autofillForm(data) {
         // Autofill the Role Description field
         autofillTextField(data[key], labelText);
       } else {
-        // Handle other input fields
-        let element = findFieldByLabel(labelText);
-        if (element) {
-          element.value = data[key];
-          element.dispatchEvent(new Event('input', { bubbles: true }));
-          element.dispatchEvent(new Event('change', { bubbles: true }));
+        // Check for an element by ID
+        if (document.getElementById(key)) {
+          autofillInputById(key, data[key]);
         } else {
-          console.log(`Could not find element for ${labelText}`);
+          // Fallback to label-based approach
+          let element = findFieldByLabel(labelText);
+          if (element) {
+            element.value = data[key];
+            element.dispatchEvent(new Event("input", { bubbles: true }));
+            element.dispatchEvent(new Event("change", { bubbles: true }));
+          } else {
+            console.log(`Could not find field for ${labelText}`);
+          }
         }
       }
     }
   }
 
-  console.log('Autofill completed');
+  console.log("Autofill completed");
 }
 
 // Listen for messages from the extension
@@ -257,14 +285,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-// Add a button to open the side panel
-const sidePanelButton = new DOMParser().parseFromString(
-  '<button>Click to open side panel</button>',
-  'text/html'
-).body.firstElementChild;
-
 sidePanelButton.addEventListener('click', () => {
   chrome.runtime.sendMessage({ type: 'open_side_panel' });
-}); // ask if needed
+})
 
-document.body.append(sidePanelButton);  // Add the button to the page
+document.body.append(sidePanelButton);  

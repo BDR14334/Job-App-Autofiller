@@ -79,7 +79,7 @@
             width: 125px;
             text-align: center;
         }
-        button:hover {
+        button:not(.generate-outline):hover {
             background-color: #1f9b48;
         }
         .button-container {
@@ -101,6 +101,24 @@
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
+        }
+        .generate-outline {
+            background-color: transparent; 
+            color: #28c45c; 
+            font-size: 8pt;
+            padding: 0px 0px 20px;
+            border: none;
+            border-radius: 8px; 
+            cursor: pointer;
+            text-align: right; 
+            display: block; 
+            width: fit-content; 
+            text-decoration: underline;
+
+        }
+
+        .generate-outline:hover {
+            color: #1f9b48;  
         }
     </style>
 </head>
@@ -321,18 +339,22 @@
         <div class="input-container">
             <label for="essay_1">Tell us about yourself.</label>
             <textarea id="essay_1" rows="6" placeholder="Write your answer here..." ></textarea>
+            <button class="generate-outline" data-target="essay_1" >Generate Outline</button>
         </div>
         <div class="input-container">
             <label for="essay_2">Why are you interested in this position/company?</label>
             <textarea id="essay_2" rows="6" placeholder="Write your answer here..." ></textarea>
+            <button class="generate-outline" data-target="essay_2" >Generate Outline</button>
         </div>
         <div class="input-container">
             <label for="essay_3">Why should we hire you? </label>
             <textarea id="essay_3" rows="6" placeholder="Write your answer here..." ></textarea>
+            <button class="generate-outline" data-target="essay_3" >Generate Outline</button>
         </div>
         <div class="input-container">
             <label for="essay_4">What challenges did you face in your most recent job and how did you deal with them? </label>
             <textarea id="essay_4" rows="6" placeholder="Write your answer here..." ></textarea>
+            <button class="generate-outline" data-target="essay_4" >Generate Outline</button>
         </div>
         
     </div>
